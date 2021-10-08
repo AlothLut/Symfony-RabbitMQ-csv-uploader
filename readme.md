@@ -25,3 +25,5 @@
 8) open route http://0.0.0.0/upload and load csv
 
 9) we will get a synch report and asynch loading into the database with rabbitmq
+
+TODO: add tests
