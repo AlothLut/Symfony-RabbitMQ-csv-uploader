@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Upload csv-file{% endblock %}
+
+{% block body %}
+
+  <form action="{{ path('upload-new') }}" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="token" value="{{ csrf_token('upload') }}" />
+
+        <div>
+            <label for="csv-file">File to upload:</label>
+            <input type="file" name="csv-file" id="csv-file">
+        </div>
+
+        <button type="submit">Upload</button>
+
+  </form>
+
+{% endblock %}
