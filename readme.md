@@ -20,9 +20,9 @@
 
 6) open http://0.0.0.0:15672/  rabbitmq gui login/password:(guest:guest)
 
-7) init messenger for check ```docker-compose exec -T php-fpm bash -c "php bin/console messenger:consume async -vv"```
+7) open route http://0.0.0.0/upload and load csv
 
-8) open route http://0.0.0.0/upload and load csv
+8) init messenger for check ```docker-compose exec -T php-fpm bash -c "php bin/console messenger:consume async -vv"```
 
 9) we will get a synch report and asynch loading into the database with rabbitmq
 
