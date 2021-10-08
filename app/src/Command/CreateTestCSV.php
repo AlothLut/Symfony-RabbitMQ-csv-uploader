@@ -22,11 +22,13 @@ class CreateTestCSV extends Command
     {
         $fp = fopen($this->params->get('csv-files') . "mock.csv", "w");
 
-        for ($i = 1; $i <= 20000; ++$i) {
+        for ($i = 1; $i <= 100000; ++$i) {
             if ($i == 1) {
                 $field = ["code" . $i, 'StaticValue1'];
             } elseif ($i == 2) {
                 $field = ["code" . $i, 'StaticValue2'];
+            } elseif($i ==3) {
+                $field = ["code" . $i, 'Static#Value>Error'];
             } else {
                 $field = ["code" . $i, bin2hex(random_bytes(3))];
             }

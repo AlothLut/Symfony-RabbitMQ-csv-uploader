@@ -3,11 +3,11 @@
 namespace App\Message;
 
 use App\Entity\Handbook;
-use Symfony\Component\Filesystem\Filesystem;
+use App\Message\CsvFilesMessage;
 use App\Traits\BannedChar;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-use App\Message\CsvFilesMessage;
 
 class CsvDataHandler implements MessageHandlerInterface
 {
@@ -37,6 +37,7 @@ class CsvDataHandler implements MessageHandlerInterface
 
         $lineNumber = 1;
         $em = $this->manager->getManager();
+        $this->manager->getConnection()->getConfiguration()->setSQLLogger(null);
 
         while (($raw_string = fgets($handle)) !== false) {
             $lineNumber++;
