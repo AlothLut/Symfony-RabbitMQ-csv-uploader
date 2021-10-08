@@ -1,14 +1,14 @@
 <?php
 namespace App\Controller;
 
+use App\Message\CsvFilesMessage;
+use App\Service\CsvFile;
 use App\Service\CsvReport;
 use App\Service\CsvUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
-use App\Service\CsvFile;
-use App\Message\CsvFilesMessage;
 
 class HandbookController extends AbstractController
 {
@@ -17,7 +17,8 @@ class HandbookController extends AbstractController
         return $this->render('upload/index.html.twig');
     }
 
-    function new (Request $request, CsvUploader $uploader, CsvReport $report, MessageBusInterface $bus) {
+    public function new (Request $request, CsvUploader $uploader, CsvReport $report, MessageBusInterface $bus)
+    {
         $token = $request->get("token");
 
         if (!$this->isCsrfTokenValid('upload', $token)) {

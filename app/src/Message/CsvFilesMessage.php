@@ -2,12 +2,24 @@
 
 namespace App\Message;
 
+/**
+ * Class adding a queue for asynchronous file processing
+ */
 class CsvFilesMessage
 {
+    /**
+     * @var string
+     */
     private $fileName;
 
+    /**
+     * @var string
+     */
     private $copyFileName;
 
+    /**
+     * @var string
+     */
     private $dir;
 
     public function __construct(string $fileName, string $copyFileName, string $dir)

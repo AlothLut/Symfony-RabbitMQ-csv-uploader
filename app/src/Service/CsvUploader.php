@@ -8,9 +8,19 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Interfaces\FileInterface;
 
+/**
+ * Сlass for uploading the file to the target directory
+ */
 class CsvUploader implements UploadInterface
 {
+    /**
+     * @var string
+     */
     private $targetDir;
+
+    /**
+     * @var SluggerInterface
+     */
     private $slugger;
 
     public function __construct(ParameterBagInterface $params, SluggerInterface $slugger)

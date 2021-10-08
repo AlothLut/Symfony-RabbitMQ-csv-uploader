@@ -22,8 +22,6 @@
 
 7) open route http://0.0.0.0/upload and load csv
 
-8) init messenger for check ```docker-compose exec -T php-fpm bash -c "php bin/console messenger:consume async -vv"```
+8) init messenger for the queue trigger ```docker-compose exec -T php-fpm bash -c "php bin/console messenger:consume async -vv"```
 
 9) we will get a synch report and asynch loading into the database with rabbitmq
-
-TODO: add tests

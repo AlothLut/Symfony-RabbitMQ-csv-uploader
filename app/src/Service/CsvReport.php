@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use App\Interfaces\FileInterface;
 use App\Traits\BannedChar;
 
+/**
+ * Сlass for generating a report based on the uploaded file
+ */
 class CsvReport implements ReportFileInterface
 {
     /**
@@ -42,7 +45,7 @@ class CsvReport implements ReportFileInterface
     {
         $this->sourceFile = $csv->getDir() . $csv->getName();
         if (!$this->filesystem->exists($this->sourceFile)) {
-            return;
+            throw new \Exception('Source file does not exist');
         }
         $this->reportFile = $csv->getDir() . "report-" . $csv->getName();
         $this->handle();

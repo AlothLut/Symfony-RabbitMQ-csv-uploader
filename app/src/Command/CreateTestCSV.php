@@ -6,8 +6,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
+/**
+ * class creates a large mock-csv-file for tests
+ */
 class CreateTestCSV extends Command
 {
+    /**
+     * @var ParameterBagInterface
+     */
     private $params;
 
     public function __construct(ParameterBagInterface $params)
@@ -27,7 +33,7 @@ class CreateTestCSV extends Command
                 $field = ["code" . $i, 'StaticValue1'];
             } elseif ($i == 2) {
                 $field = ["code" . $i, 'StaticValue2'];
-            } elseif($i ==3) {
+            } elseif ($i == 3) {
                 $field = ["code" . $i, 'Static#Value>Error'];
             } else {
                 $field = ["code" . $i, bin2hex(random_bytes(3))];

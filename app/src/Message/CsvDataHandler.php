@@ -9,6 +9,9 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
+/**
+ * Сlass for asynchronously loading data into the database
+ */
 class CsvDataHandler implements MessageHandlerInterface
 {
     const BATCH_SIZE = 20;

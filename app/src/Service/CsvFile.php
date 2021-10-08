@@ -2,9 +2,8 @@
 
 namespace App\Service;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Interfaces\FileInterface;
-use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class CsvFile implements FileInterface
 {
@@ -43,12 +42,6 @@ class CsvFile implements FileInterface
         return $this->fileName;
     }
 
-    public function removeFile(): void
-    {
-        $filesystem = new Filesystem;
-        $filesystem->remove($this->getDir() . $this->getName());
-    }
-
     public function setDir(string $dir): void
     {
         $this->dir = $dir;
@@ -67,11 +60,5 @@ class CsvFile implements FileInterface
     public function getReportCopy(): string
     {
         return $this->reportCopy;
-    }
-
-    public function removeReportCopy(): void
-    {
-        $filesystem = new Filesystem;
-        $filesystem->remove($this->getDir() . $this->getReportCopy());
     }
 }
