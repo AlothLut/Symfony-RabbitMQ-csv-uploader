@@ -12,7 +12,8 @@
 
 2) install dependencies ```docker-compose exec -T php-fpm bash -c "composer install"```
 
-3) copy /app/.env-example to /app/.env or create yourself
+3) copy /app/.env-example to /app/.env or create yourself and generate secret keys 
+    ```docker-compose exec -T php-fpm bash -c"php bin/console secrets:generate-keys"```
 
 4) run migrations ```docker-compose exec -T php-fpm bash -c "php bin/console doctrine:migrations:migrate"```
 
