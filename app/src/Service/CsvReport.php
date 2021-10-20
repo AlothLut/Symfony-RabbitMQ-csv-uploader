@@ -72,7 +72,7 @@ class CsvReport implements ReportFileInterface
         fclose($report);
     }
 
-    public function getFileResponse()
+    public function getReportResponse()
     {
         $response = new BinaryFileResponse($this->reportFile);
         $response->setContentDisposition(
