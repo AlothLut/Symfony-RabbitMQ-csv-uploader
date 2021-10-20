@@ -35,7 +35,7 @@ class HandbookController extends AbstractController
 
         $csv = new CsvFile($file);
         $uploader->upload($csv);
-        $report->init($csv);
+        $report->create($csv);
         $bus->dispatch(new CsvFilesMessage($csv->getName(), $csv->getReportCopy(), $csv->getDir()));
 
         return $report->getFileResponse();
