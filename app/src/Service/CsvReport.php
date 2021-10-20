@@ -41,7 +41,7 @@ class CsvReport implements ReportFileInterface
         $this->filesystem = $filesystem;
     }
 
-    public function init(FileInterface $csv): void
+    public function create(FileInterface $csv): void
     {
         $this->sourceFile = $csv->getDir() . $csv->getName();
         if (!$this->filesystem->exists($this->sourceFile)) {
@@ -72,7 +72,7 @@ class CsvReport implements ReportFileInterface
         fclose($report);
     }
 
-    public function getFileResponse()
+    public function getReportResponse()
     {
         $response = new BinaryFileResponse($this->reportFile);
         $response->setContentDisposition(
