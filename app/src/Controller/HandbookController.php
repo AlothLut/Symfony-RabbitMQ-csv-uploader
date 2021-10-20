@@ -38,6 +38,6 @@ class HandbookController extends AbstractController
         $report->create($csv);
         $bus->dispatch(new CsvFilesMessage($csv->getName(), $csv->getReportCopy(), $csv->getDir()));
 
-        return $report->getFileResponse();
+        return $report->getReportResponse();
     }
 }
